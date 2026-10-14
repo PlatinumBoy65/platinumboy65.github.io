@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Name | AI Engineering Portfolio</title>
+<meta name="description" content="Portfolio of Your Name, AI Engineering student.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<!--
+  HOW TO EDIT: search for "YOUR" or text in [square brackets] and replace it with your own.
+  Sections: Home, About Me, Portfolio, Reflections, Contact.
+-->
+<style>
+:root{
+  --paper:#eef2f6; --paper2:#e2e8ef; --ink:#14213d; --muted:#4a5a73;
+  --line:#c5d0dd; --accent:#0f6f6c; --mark:#ffd23f; --card:#fbfcfd;
+}
+@media (prefers-color-scheme: dark){
+  :root{--paper:#0e1726; --paper2:#15213a; --ink:#e8eef7; --muted:#9db0cb;
+        --line:#26385a; --accent:#5fd4c9; --mark:#ffd23f; --card:#121d33;}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.05rem/1.65 "IBM Plex Sans",system-ui,sans-serif;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:48px 48px;background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0;background:var(--paper);opacity:.82;z-index:-1}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.1;margin:0}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--mark);outline-offset:3px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+
+/* nav */
+header{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:56px;flex-wrap:wrap}
+.brand{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;text-decoration:none;color:var(--ink)}
+nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav ul a{display:block;padding:6px 12px;color:var(--ink);text-decoration:none;border-radius:6px;font-weight:500;font-size:.95rem}
+nav ul a:hover{background:var(--paper2)}
+
+/* hero */
+#home{position:relative;padding:96px 0 88px;overflow:hidden;border-bottom:1px solid var(--line)}
+#net{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+#home .wrap{position:relative;z-index:1}
+.hello{color:var(--muted);margin:0 0 12px}
+h1{font-size:clamp(2.8rem,8vw,5.6rem);font-weight:800;letter-spacing:-.03em}
+h1 span{background:linear-gradient(transparent 62%,var(--mark) 62% 92%,transparent 92%);color:#14213d;padding:0 .08em}
+@media (prefers-color-scheme: dark){h1 span{color:var(--ink);background:linear-gradient(transparent 62%,#6b5a10 62% 92%,transparent 92%)}}
+.tagline{font-size:1.25rem;max-width:34ch;margin:20px 0 0}
+.facts{display:flex;gap:10px;flex-wrap:wrap;margin:28px 0 0;padding:0;list-style:none}
+.facts li{border:1px solid var(--ink);padding:6px 14px;border-radius:999px;background:var(--card);font-weight:500;font-size:.95rem}
+.btns{margin-top:32px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 22px;border-radius:8px;font-weight:500;text-decoration:none;border:2px solid var(--ink);color:var(--ink);background:var(--card)}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.btn:hover{transform:translateY(-2px)}
+.btn{transition:transform .15s}
+
+/* sections */
+section{padding:84px 0;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+h2{font-size:clamp(2rem,4.5vw,3rem);letter-spacing:-.02em;margin-bottom:28px}
+.lead{max-width:62ch}
+.about{display:grid;grid-template-columns:1fr 280px;gap:48px;align-items:start}
+.photo{aspect-ratio:4/5;background:var(--paper2);border:2px dashed var(--muted);border-radius:12px;display:grid;place-items:center;text-align:center;color:var(--muted);padding:16px;font-size:.9rem;overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover}
+.skills{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:24px 0 0}
+.skills li{background:var(--paper2);border:1px solid var(--line);padding:4px 12px;border-radius:6px;font-size:.92rem}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.proj{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:12px}
+.proj h3{font-size:1.35rem}
+.proj p{margin:0;color:var(--muted);font-size:.98rem}
+.proj .meta{font-size:.85rem;color:var(--accent);font-weight:500}
+.proj a.more{margin-top:auto;font-weight:500}
+
+.posts{display:grid;gap:12px;max-width:760px}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:0}
+summary{cursor:pointer;padding:18px 22px;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:baseline;font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:1.2rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.5rem;line-height:1;color:var(--accent)}
+details[open] summary::after{content:"\2212"}
+summary time{font:400 .85rem "IBM Plex Sans",sans-serif;color:var(--muted);margin-left:auto}
+details .body{padding:0 22px 20px;max-width:62ch}
+details .body p{margin:0 0 12px}
+
+.contact-list{list-style:none;padding:0;margin:0;display:grid;gap:14px;max-width:520px}
+.contact-list li{display:flex;gap:16px;border-bottom:1px solid var(--line);padding-bottom:14px}
+.contact-list b{min-width:90px;font-weight:500;color:var(--muted)}
+footer{padding:32px 0 48px;color:var(--muted);font-size:.9rem}
+
+@media (max-width:760px){
+  .about{grid-template-columns:1fr}
+  .photo{max-width:240px}
+  #home{padding:64px 0}
+  section{padding:60px 0}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a class="brand" href="#home">YOUR NAME</a>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About me</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#reflections">Reflections</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- 1. HOME -->
+<section id="home" aria-label="Home">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <p class="hello">Hi, I'm</p>
+    <h1><span>Yeshua N. Castillo</span></h1>
+    <p class="tagline">I'm learning to build AI systems that solve real problems.</p>
+    <ul class="facts">
+      <li>BS in Artificial Intelligence Engineering</li>
+      <li>1st year</li>
+      <li>Mapúa University</li>
+    </ul>
+    <div class="btns">
+      <a class="btn primary" href="#portfolio">See my work</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- 2. ABOUT -->
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <h2>About me</h2>
+      <p class="lead">[Hello, I am Yeshua, and I'm from Bulacan. I am an alumni of St. Paul College of Bocaue, and I am currently enrolled in Mapúa University.]</p>
+      <p class="lead">[I chose A.I. Engineering since I am interested in computers and A.I. I have always wanted to possibly use A.I. for coding purposes and for assistance in video game developing.]</p>
+      <p class="lead">[The kind of work I want to take is either to maintain A.I. data centers, code for A.I. systems, or use A.I. to assist me in making video games.]</p>
+      <ul class="skills" aria-label="Skills and tools">
+        <li>Python</li><li>Vast knowledge with computers</li><li>Laptops/PCs</li><li>AIE100</li>
+      </ul>
+    </div>
+    <div class="photo" role="img" aria-label="Photo placeholder">
+      <span>Add your photo:<br>put <b>photo.jpg</b> next to this file, then replace this box with<br><code>&lt;img src="photo.jpg" alt="Your Name"&gt;</code></span>
+    </div>
+  </div>
+</section>
+
+<!-- 3. PORTFOLIO -->
+<section id="portfolio">
+  <div class="wrap">
+    <h2>Portfolio</h2>
+    <p class="lead" style="margin-bottom:28px">Projects, reports, lab work, and creative outputs from my courses. I'll keep adding to this as I go.</p>
+    <div class="grid">
+      <article class="proj">
+        <span class="meta">[AIE100] · [August to October 2026]</span>
+        <h3>[Campus Services Familiarization Activity Report]</h3>
+        <p>This project is made to help future and current students about the facilities in Mapúa.</p>
+        <a class="more" href="#">View project</a>
+      </article>
+      <article class="proj">
+        <span class="meta">[AIE100] · [September 2026]</span>
+        <h3>[The Illusion of Progress: A Reflection on Planned Obsolescence and Consumerism]</h3>
+        <p>This is a reaction paper based on a phenomenon of "Planned obsolescence" in which a device degrades over time on purpose.</p>
+        <a class="more" href="#">View report</a>
+      </article>
+      <article class="proj">
+        <span class="meta">[GED105] · [October 2026]</span>
+        <h3>[Accelerating SDG 13 (Climate Action) in the Philippines]</h3>
+        <p>A position paper that discusses SDG (Sustainable Development Goals) 13 and its possible solutions.</p>
+        <a class="more" href="#">View output</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 4. REFLECTIONS -->
+<section id="reflections">
+  <div class="wrap">
+    <h2>Reflections</h2>
+    <div class="posts">
+      <details open>
+        <summary>[What I learned in AIE100] <time datetime="2026-10-14">Oct 14, 2026</time></summary>
+        <div class="body">
+          <p>[What I have learned from AIE100 is that it taught me on how to properly use A.I. and how to use it for assistance in coding. This course also made me realize the ethics around A.I. and why we should follow said ethics.]</p>
+          <p>[The A.I. tools I used were ChatGPT for ideas, Gemini for formatting, and Claude for coding assistance.]</p>
+        </div>
+      </details>
+      <details>
+        <summary>[A personal reflection] <time datetime="2026-10-21">Oct 14, 2026</time></summary>
+        <div class="body"><p>I realized that life is not so easy. I was hit with reality multiple times, yet I managed to keep moving forward. I just want to tell you that taking breaks is very important and that you matter. I hope that someday, things will get better for everybody.</p></div>
+      </details>
+      <details>
+        <summary>[The future] <time datetime="2026-10-28">Oct 14, 2026</time></summary>
+        <div class="body"><p>[I am very excited for the future since as time passes, technology improves. I want to see where A.I. goes and evolves to help humanity improve and move forward. I also want to see new technological advancements, such as improved cell phones and better internet.]</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 5. CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <p class="lead" style="margin-bottom:28px">Want to collaborate, give feedback, or just say hi? Reach me here.</p>
+    <ul class="contact-list">
+      <li><b>Email</b><a href="https://mail.google.com/mail/?view=cm&fs=1&to=yeshuacastillo5@gmail.com&su=Hello%20from%20your%20portfolio" target="_blank" rel="noopener">yeshuacastillo5@gmail.com</a></li>
+      <li><b>LinkedIn</b><a href="https://www.linkedin.com/in/yeshua-castillo-20149742a/?isSelfProfile=true" target="_blank" rel="noopener">linkedin.com/in/yeshua-castillo-20149742a/?isSelfProfile=true</a></li>
+      <li><b>GitHub</b><a href="https://github.com/PlatinumBoy65" target="_blank" rel="noopener">github.com/PlatinumBoy65</a></li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">&copy; 2026 Yeshua N. Castillo. Built for AIE100 (AI Engineering as a Discipline).</div></footer>
+
+<script>
+/* Hero animation: drifting nodes joined by lines, like a small neural network. */
+(function(){
+  var c=document.getElementById('net'), ctx=c.getContext('2d');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var pts=[], W, H, mouse={x:-999,y:-999};
+  function css(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim()}
+  function size(){
+    var r=c.getBoundingClientRect(), d=window.devicePixelRatio||1;
+    W=r.width;H=r.height;c.width=W*d;c.height=H*d;ctx.setTransform(d,0,0,d,0,0);
+    var n=Math.round(Math.min(70,W*H/14000));
+    pts=[];for(var i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3});
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    var col=css('--accent');
+    ctx.fillStyle=col;ctx.strokeStyle=col;
+    for(var i=0;i<pts.length;i++){
+      var p=pts[i];
+      if(!reduce){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;}
+      ctx.globalAlpha=.7;ctx.beginPath();ctx.arc(p.x,p.y,2.5,0,6.283);ctx.fill();
+      for(var j=i+1;j<pts.length;j++){
+        var q=pts[j],dx=p.x-q.x,dy=p.y-q.y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<130){ctx.globalAlpha=(1-d/130)*.35;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke();}
+      }
+      var mx=p.x-mouse.x,my=p.y-mouse.y,md=Math.sqrt(mx*mx+my*my);
+      if(md<160){ctx.globalAlpha=(1-md/160)*.7;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(mouse.x,mouse.y);ctx.stroke();}
+    }
+    if(!reduce)requestAnimationFrame(draw);
+  }
+  c.parentElement.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;});
+  c.parentElement.addEventListener('mouseleave',function(){mouse.x=mouse.y=-999;});
+  window.addEventListener('resize',function(){size();if(reduce)draw();});
+  size();draw();
+})();
+</script>
+</body>
+</html>
